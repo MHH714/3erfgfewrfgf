@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hell Instances</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333; 
+            color: #fff; 
+        }
+
+        .card {
+            width: 200px;
+            height: 100px;
+            background-color: #444; 
+            border: 1px solid #ccc;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card:hover {
+            background-color: #555;
+        }
+
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+        .open-button {
+            background-color: #007BFF; /* button background color */
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .open-button:hover {
+            background-color: #0056b3; 
+        }
+    </style>
+</head>
+<body>
+    <script>
+        
+        const cardData = [
+          { title: "Post Links Here.", link: "https://forms.gle/gwxTCDRzZQRo5toH7", showButton: true },
+            
+            { title: "Netlify Link 1", link: "https://he1l.netlify.app", showButton: true },
+            { title: "Netlify link 2", link: "https://hellv3.netlify.app", showButton: true },
+          
+            { title: "Vercel Link 1", link: "https://hell-alpha.vercel.app", showButton: true },
+            // Add more cards here...
+            { title: "Github.io | LEGACY", link: "https://dachxdd.github.io", showButton: true }
+        ];
+
+        function createCards() {
+            const cardContainer = document.body;
+
+            cardData.forEach((data, index) => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                const title = document.createElement("div");
+                title.classList.add("card-title");
+                title.textContent = data.title;
+
+                card.appendChild(title);
+
+                if (data.showButton) {
+                    const openButton = document.createElement("button");
+                    openButton.classList.add("open-button");
+                    openButton.textContent = "Open Link";
+openButton.addEventListener("click", () => {
+                        window.open(data.link, "_blank");
+                    });
+
+                    card.appendChild(openButton);
+                }
+
+                cardContainer.appendChild(card);
+            });
+        }
+
+        // Call the function to create cards
+        createCards();
+    </script>
+</body>
+</html>
